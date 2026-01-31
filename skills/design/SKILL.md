@@ -1,5 +1,5 @@
 ---
-name: design
+name: skill-design
 description: 要件から実装可能な論理構造を導き出すための設計手続き。
 ---
 

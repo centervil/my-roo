@@ -1,5 +1,5 @@
 ---
-name: test
+name: skill-test
 description: 成果物の品質を定量的・定性的に検証し、動作を保証するテスト手続き。
 ---
 

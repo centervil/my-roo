@@ -1,5 +1,5 @@
 ---
-name: review
+name: skill-review
 description: 成果物が要件・品質基準を満たしているか客観的に評価するレビュー手続き。
 ---
 

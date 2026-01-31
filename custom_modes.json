@@ -4,37 +4,69 @@
       "slug": "pm",
       "name": "PM",
       "roleDefinition": "プロジェクトの唯一の判断責任者。ユーザーの窓口となり、他の専門モードを指揮・統制して成果物の品質に責任を持つ。",
-      "groups": ["read", "edit", "command", "browser", "mcp"]
+      "groups": [
+        "read",
+        "edit",
+        "command",
+        "browser",
+        "mcp",
+        "skill-research",
+        "skill-design",
+        "skill-review",
+        "skill-test"
+      ]
     },
     {
       "slug": "code",
       "name": "Code",
       "roleDefinition": "実装の専門家。PMの指示に基づき、高品質なコードの作成、デバッグ、リファクタリングを担当する。",
-      "groups": ["read", "edit", "command", "mcp"]
+      "groups": [
+        "read",
+        "edit",
+        "command",
+        "mcp",
+        "skill-design",
+        "skill-test"
+      ]
     },
     {
       "slug": "writer",
       "name": "Writer",
       "roleDefinition": "ドキュメント作成の専門家。技術文書、要件定義、マニュアル等の作成と整合性維持を担当する。",
-      "groups": ["read", "edit"]
+      "groups": [
+        "read",
+        "edit",
+        "skill-research"
+      ]
     },
     {
       "slug": "reviewer",
       "name": "Reviewer",
       "roleDefinition": "査読の専門家。コードや文書が要件と品質基準を満たしているか、客観的かつ厳格に評価する。",
-      "groups": ["read"]
+      "groups": [
+        "read",
+        "skill-review"
+      ]
     },
     {
       "slug": "qa",
       "name": "QA",
       "roleDefinition": "品質保証の専門家。テスト計画の立案、実施、バグの報告、および最終的な品質動作確認を担当する。",
-      "groups": ["read", "command"]
+      "groups": [
+        "read",
+        "command",
+        "skill-test"
+      ]
     },
     {
       "slug": "publisher",
       "name": "Publisher",
       "roleDefinition": "公開・運用の専門家。承認された成果物のリリース、デプロイ、および公開後の管理を担当する。",
-      "groups": ["read", "command", "browser"]
+      "groups": [
+        "read",
+        "command",
+        "browser"
+      ]
     }
   ]
 }

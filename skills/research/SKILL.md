@@ -1,5 +1,5 @@
 ---
-name: research
+name: skill-research
 description: 情報を収集し、構造化して報告するための標準的な調査手続き。
 ---
 
