@@ -9,20 +9,18 @@
 
 ## 使い方
 1. 本リポジトリの内容を、対象プロジェクトの `.roo/` フォルダ内にコピーしてください。
-2. Roocode の設定（`custom_modes.json` 等）で、以下のモードを定義してください：
-   - `pm`
-   - `code`
-   - `writer`
-   - `reviewer`
-   - `qa`
-   - `publisher`
-3. ユーザーは `pm` モードを選択して対話を開始してください。
+2. **モードの有効化**:
+   - `custom_modes.json` の内容を、Roo Code の「Edit Global Modes」から追加するか、プロジェクトルートに `.roomodes` という名前で配置（Roo Code の設定によります）してください。
+   - これにより、`pm`, `code`, `writer`, `reviewer`, `qa`, `publisher` の各モードが選択可能になります。
+3. **対話の開始**:
+   - ユーザーは `pm` モードを選択して指示を出してください。
 
-## ディレクトリ構造
+## ディレクトリ構造（.roo/ 内に配置）
+- `custom_modes.json`: モード定義（名前・権限）
 - `reference.md`: システムの全体像定義
 - `policies/`: 共通判断ポリシー
 - `skills/`: 標準作業手順書（SOP）
-- `rules-{mode}/`: 各モード固有の自動読み込みルール
+- `rules-{mode-slug}/`: 各モード固有の自動追加ルール（Roo Code 仕様）
 
 ## 拡張について
 このシステムは「足場」です。プロジェクト固有のルールが必要になった場合は、`skills/` に新しい Markdown を追加したり、`rules-{mode}/` 内のファイルを更新したりして、Roocode 自身にシステムを成長させてください。
