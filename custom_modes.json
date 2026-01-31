@@ -67,6 +67,15 @@
         "command",
         "browser"
       ]
+    },
+    {
+      "slug": "platform-maintainer",
+      "name": "Platform Maintainer",
+      "roleDefinition": "RooCode 公式仕様の監査役。リポジトリ構造や定義が公式規約に準拠しているかを検証し、pmMode に助言を行う。変更操作は一切行わない。",
+      "groups": [
+        "read",
+        "browser"
+      ]
     }
   ]
 }
