@@ -1,21 +1,23 @@
-# Slash Command: Audit
-このコマンドは、現在のスキャフォールドが Roo Code の公式仕様に適合しているかを監査し、結果をログに記録する標準プロセスを実行します。
+# Slash Command: Audit (System Health Check)
 
-## 実行手順
+以下の指示を実行し、本システムの健全性を証明せよ。
 
-1. **現状把握**:
-   - `project_state.md` を読み、現在のフェーズと完了したタスクを確認してください。
+## Mission
+「現在の RooCode 業務遂行システムが、設計思想通りに正常稼働していることを実証する。」
 
-2. **監査実行 (Audit)**:
-   - `platform-maintainer` モードに切り替え（または呼び出し）、以下の観点で監査を行わせてください。
-     - ディレクトリ構造は `.roo/` の仕様に合っているか？
-     - `custom_modes.json` の定義は正しいか？
-     - 各 Mode の契約ファイル（`rules-*/00-contract.md`）は存在し、正しい書式か？
-     - Skill の定義（`skills/*/SKILL.md`）は正しい書式か？
+## Requirements
+pmMode は以下の観点について自律的に検証計画を立案し、実行すること。
 
-3. **記録 (Logging)**:
-   - 監査結果（PASS/FAIL/WARN）に基づき、`skill-logging` を使用して `development_logs/session_logs.md` に結果を記録してください。
-   - ログには「期待値（Roo Code 仕様への完全準拠）」と「乖離（監査で見つかった問題）」を明確に記述してください。
+1. **構造的正当性 (Structural Integrity)**
+   - システム構成が Roo Code の公式仕様および `platform-maintainer` の基準に適合しているか。
 
-4. **更新**:
-   - 監査の結果、修正が必要な場合は `project_state.md` の「残された課題」または「進行中のタスク」を更新してください。
+2. **状態の整合性 (State Consistency)**
+   - `project_state.md` (Layer 2) の記述が、ファイルシステムの実態 (Layer 3) と一致しているか。
+
+3. **オーケストレーション能力 (Orchestration Capability)**
+   - 全ての作業系 Mode (Writer, Code, Reviewer, QA, Publisher) が正常に連携し、タスクを完遂できるか。
+   - ※ 検証のために、無害な「ダミータスク」を生成・実行し、成功の証跡を残すこと。
+
+## Completion Condition
+- 検証結果および発見された課題が `development_logs/` に記録されていること。
+- `project_state.md` が検証結果に基づいて最新化されていること。
