@@ -17,7 +17,7 @@
 
 ## ディレクトリ構造（.roo/ 内に配置）
 - `custom_modes.json`: モード定義（名前・権限）
-- `reference.md`: システムの全体像定義
+- `docs/system-definition.md`: システムの全体像定義
 - `policies/`: 共通判断ポリシー
 - `skills/`: 標準作業手順書（SOP）
 - `rules-{mode-slug}/`: 各モード固有の自動追加ルール（Roo Code 仕様）
