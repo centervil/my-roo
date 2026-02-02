@@ -15,14 +15,14 @@
 
 ## Input Contract
 - **Source**: pmMode (Exclusive).
-- **Format**: 構造化されたワークフロー指示書（ステップ、担当 Mode、具体的要件、完了定義）。
+- **Format**: `DispatchObject` (YAML) based on `.roo/docs/protocols/interaction_schema.yaml`.
 
 ## Output Contract
 - **Source**: Worker Modes.
-- **Format**: 実行結果レポート（成功/失敗の事実、生成されたファイル、エラーの詳細）。
+- **Format**: `ResultObject` (YAML) based on `.roo/docs/protocols/interaction_schema.yaml`.
 
 ## Escalation Conditions
-- Worker Mode が要件を満たさない成果物を提出した場合（不一致の事実を添えて pmMode に通知）。
+- Worker Mode から `status: "NG"` または `status: "BLOCK"` の `ResultObject` が返された場合。
 - 予期せぬシステムエラーが発生した場合。
 
 ## Forbidden Actions

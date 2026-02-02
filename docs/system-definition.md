@@ -46,8 +46,16 @@ User ⇅ pmMode (唯一の対話窓口・最終判断責任者)
 ## 4. 通信プロトコル（階層構造）
 本システムでは、情報のバイパス（階層を飛ばした通信）を厳禁とする。
 
+### 4.1 プロトコル仕様
+Mode 間の指示および報告は、AI の理解効率とトークン節約のため、以下の定義ファイルに基づく **英語・YAML 形式** で行うことを標準とする。
+- **定義**: `.roo/docs/protocols/interaction_schema.yaml`
+- **DispatchObject**: Orchestrator -> Worker
+- **ResultObject**: Worker -> Orchestrator
+
+### 4.2 フロー
 1. **Top-Down (指示)**: User -> pmMode -> Orchestrator -> Worker Mode
 2. **Bottom-Up (報告)**: Worker Mode -> Orchestrator -> pmMode -> User
+
 
 ### 4.1 エスカレーションルール
 - Worker Mode は Orchestrator にのみ問題を報告する。
