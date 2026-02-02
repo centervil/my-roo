@@ -9,12 +9,7 @@
         "edit",
         "command",
         "browser",
-        "mcp",
-        "skill-research",
-        "skill-design",
-        "skill-review",
-        "skill-test",
-        "skill-logging"
+        "mcp"
       ]
     },
     {
@@ -25,9 +20,7 @@
         "read",
         "edit",
         "command",
-        "mcp",
-        "skill-design",
-        "skill-test"
+        "mcp"
       ]
     },
     {
@@ -36,8 +29,7 @@
       "roleDefinition": "ドキュメント作成の専門家。技術文書、要件定義、マニュアル等の作成と整合性維持を担当する。",
       "groups": [
         "read",
-        "edit",
-        "skill-research"
+        "edit"
       ]
     },
     {
@@ -45,8 +37,7 @@
       "name": "Reviewer",
       "roleDefinition": "査読の専門家。コードや文書が要件と品質基準を満たしているか、客観的かつ厳格に評価する。",
       "groups": [
-        "read",
-        "skill-review"
+        "read"
       ]
     },
     {
@@ -55,8 +46,7 @@
       "roleDefinition": "品質保証の専門家。テスト計画の立案、実施、バグの報告、および最終的な品質動作確認を担当する。",
       "groups": [
         "read",
-        "command",
-        "skill-test"
+        "command"
       ]
     },
     {
