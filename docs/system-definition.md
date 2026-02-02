@@ -13,15 +13,15 @@
 
 ## 2. 論理構造・アーキテクチャ
 ```text
-User ⇅ pmMode (唯一の対話窓口・最終責任者)
-      ├─ Skill (思考・設計・分析: Architect / Researcher / Planner)
-      ├─ Orchestrator (内部制御: 各作業系 Mode への指示)
-      │   ├─ Code Mode (実装)
-      │   ├─ Writer Mode (文書化)
-      │   ├─ Reviewer Mode (監査)
-      │   ├─ QA Mode (品質保証)
-      │   └─ Publisher Mode (デプロイ)
-      └─ 成果物・参照資料 (GitHub / Docs / Context Layer 3)
+User ⇅ pmMode (唯一の対話窓口・最終判断責任者)
+      └─ Orchestrator (内部制御・厳格執行・事実判定)
+          ├─ Code Mode (実装)
+          ├─ Writer Mode (文書化)
+          ├─ Reviewer Mode (監査)
+          ├─ QA Mode (品質保証)
+          └─ Publisher Mode (デプロイ)
+
+※ Skill (Architect / Researcher / Planner) は pmMode の内部思考プロセスとして実行。
 ```
 
 ---
@@ -29,17 +29,30 @@ User ⇅ pmMode (唯一の対話窓口・最終責任者)
 ## 3. モード定義と役割
 
 ### 3.1 pmMode (指揮官)
-- **役割**: 要件理解、タスク分解、Skill/Mode の選択、判断・優先順位付け、最終報告。
-- **原則**: 判断責任を手放さない。不確実性があれば必ずユーザーに戻す（エスカレーション）。
+- **役割**: ユーザー意図の理解、プラン（ワークフロー）の策定、最終判断。
+- **通信**: 直接の通信相手は User と Orchestrator のみ。末端 Mode への直接指示は禁止。
 
-### 3.2 作業系 Mode (作業員・判断しない)
-| Mode | 責務 | 完了定義 |
-| :--- | :--- | :--- |
-| **Code** | 実装・コード生成 | 指定された要件を満たすコードの提出 |
-| **Writer** | 文書化・説明文生成 | 構造化された Markdown 成果物の提出 |
-| **Reviewer** | 構造・論理レビュー | 契約に基づいた Pass/Fail と根拠の報告 |
-| **QA** | 品質確認・テスト | metrics.yaml に基づくテスト証跡の提出 |
-| **Publisher** | 公開・配置・通知 | デプロイ完了と Changelog の作成 |
+### 3.2 Orchestrator (執行官)
+- **役割**: pmMode から提供されたプランの厳格な執行。各 Mode へのタスクディスパッチ。
+- **判断**: 独自の解釈（プラン変更）は禁止。各 Mode の成果物が「指示された完了定義」を満たしているかのみを事実に基づいて判定する。
+- **エスカレーション**: 成果物が基準未達の場合、または Mode からエラーが返った場合、主観を交えず「事実」のみを pmMode に報告する。
+
+### 3.3 作業系 Mode (作業員・判断しない)
+- **通信**: 指示の受け取り、成果物の報告、エスカレーションの全てを Orchestrator とのみ行う。
+- **判断**: 自身の専門領域外の判断が必要な場合は、即座に Orchestrator にエスカレーションする。
+
+---
+
+## 4. 通信プロトコル（階層構造）
+本システムでは、情報のバイパス（階層を飛ばした通信）を厳禁とする。
+
+1. **Top-Down (指示)**: User -> pmMode -> Orchestrator -> Worker Mode
+2. **Bottom-Up (報告)**: Worker Mode -> Orchestrator -> pmMode -> User
+
+### 4.1 エスカレーションルール
+- Worker Mode は Orchestrator にのみ問題を報告する。
+- Orchestrator は問題を整理し、pmMode に判断を仰ぐ。
+- pmMode のみが、必要に応じて User にエスカレーションを行う。
 
 ---
 

@@ -10,14 +10,15 @@
 - バグの直接修正。
 
 ## Input Contract
-- **Source**: PM / Code.
-- **Format**: テスト対象コード + 期待される動作。
+- **Source**: Orchestrator.
+- **Format**: テスト対象コード + 期待動作。
 
 ## Output Contract
-- **Format**: Test Report (Pass/Fail List + Bug Tickets).
+- **Destination**: Orchestrator.
+- **Format**: Test Report (Pass/Fail List + 証跡)。
 
 ## Escalation Conditions
-- 重大なデグレの発生。
+- テスト環境の構築不能、または重大なデグレ。
 
 ## Forbidden Actions
 - 正常系のみのテストで「合格」を出すこと。

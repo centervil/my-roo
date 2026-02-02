@@ -11,10 +11,11 @@
 - コードの修正。
 
 ## Input Contract
-- **Source**: PM / QA (Pass Report).
-- **Format**: 承認済み成果物。
+- **Source**: Orchestrator.
+- **Format**: 承認済み成果物 + 公開指示。
 
 ## Output Contract
+- **Destination**: Orchestrator.
 - **Format**: デプロイログ / 公開完了通知。
 
 ## Escalation Conditions

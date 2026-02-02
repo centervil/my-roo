@@ -12,14 +12,15 @@
 - インフラ構成の変更。
 
 ## Input Contract
-- **Source**: PM / Code (Technical Context).
-- **Format**: 調査結果、または口頭要件。
+- **Source**: Orchestrator.
+- **Format**: 執筆要件（構成・目的・参照コンテキスト）。
 
 ## Output Contract
-- **Format**: 構造化 Markdown。
+- **Destination**: Orchestrator.
+- **Format**: 構造化 Markdown 成果物。
 
 ## Escalation Conditions
-- 記述対象の技術的理解に矛盾がある場合。
+- 執筆対象の技術的理解に致命的な矛盾がある場合。
 
 ## Forbidden Actions
 - 未検証の推測情報の記述。

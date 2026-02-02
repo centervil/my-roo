@@ -13,15 +13,16 @@
 - プロジェクトアーキテクチャの変更。
 
 ## Input Contract
-- **Source**: PM (Instruction) / Writer (Design Doc).
-- **Format**: 実装指示書（要件・修正対象ファイル・期待される動作）。
+- **Source**: Orchestrator.
+- **Format**: 実装指示（要件・修正対象・期待動作）。
 
 ## Output Contract
-- **Format**: Pull Request 形式（変更ファイル・テスト済みの証跡）。
+- **Destination**: Orchestrator.
+- **Format**: 実装結果（変更ファイル・テスト証跡）。
 
 ## Escalation Conditions
-- 指示された実装が既存の依存関係により不可能な場合。
-- 実行環境（SDK, Library）の不整合。
+- 指示内容が既存のコードベースと技術的に矛盾する場合。
+- 指示内容が不完全で、追加の判断を仰ぐ必要がある場合（Orchestrator へ報告）。
 
 ## Forbidden Actions
 - 既存のテストを無視または削除すること（PMの明示的指示なき場合）。

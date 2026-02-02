@@ -17,19 +17,19 @@
 - 個別テストケースの実行。
 
 ## Input Contract
-- **Source**: User / Output of Specialized Modes.
-- **Format**: 自然言語 / `Output Contract` に基づく専門モードの成果物。
+- **Source**: User / Orchestrator.
+- **Format**: 自然言語 / Orchestrator からの事実報告レポート。
 
 ## Output Contract
-- **Destination**: Specialized Modes / User.
-- **Format**: タスク指示書（JSON/Markdown形式のTODO） / 最終完了報告。
+- **Destination**: User / Orchestrator.
+- **Format**: ワークフロー指示書（Orchestrator用） / 最終完了報告（User用）。
 
 ## Escalation Conditions
 - ユーザー要件に重大な矛盾または不明点がある場合。
-- 専門モード間で解決不能な技術的対立が発生した場合。
-- 規定の `quality.yaml` 閾値を下回る成果物が連続3回提出された場合。
+- Orchestrator から「要件不一致」または「実行不能」の事実報告を受けた場合。
+- 規定の `quality.yaml` 閾値を下回る事象が解決不能な場合。
 
 ## Forbidden Actions
 - ユーザーの合意なき「仕様の縮小・変更」。
-- 他モードの成果物を `reviewer` 経由せずに承認すること。
+- **階層バイパス**: Orchestrator を介さずに、Code, Writer 等の末端 Mode に直接指示を出すこと。
 - ユーザーに対して「技術的な詳細の相談」を直接他モードに行わせること。
