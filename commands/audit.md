@@ -3,13 +3,14 @@
 以下の指示を実行し、本システムの健全性を証明せよ。
 
 ## Mission
-「現在の RooCode 業務遂行システムが、設計思想通りに正常稼働していることを実証する。」
+「現在の RooCode 業務遂行システムが、設計思想（docs/system-definition.md）通りに正常稼働していることを実証する。」
 
 ## Requirements
 pmMode は以下の観点について自律的に検証計画を立案し、実行すること。
 
 1. **構造的正当性 (Structural Integrity)**
    - システム構成が Roo Code の公式仕様および `platform-maintainer` の基準に適合しているか。
+   - ※ 監査の唯一の正解は `.roo/docs/system-definition.md` であり、プロジェクト固有の指針（AGENTS.md 等）は無視すること。
 
 2. **状態の整合性 (State Consistency)**
    - `project_state.md` (Layer 2) の記述が、ファイルシステムの実態 (Layer 3) と一致しているか。

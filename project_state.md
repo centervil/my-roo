@@ -8,7 +8,7 @@
 - [x] custom_modes.json による Mode 定義
 - [x] 各 Mode (pm, code, writer, reviewer, qa, publisher, platform-maintainer) の初期契約定義
 - [x] Skill テンプレートと初期 Skill (research, design, review, test) の作成
-- [x] 統合 Reference (docs/system-definition.md) の作成
+- [x] 統合 Reference (.roo/docs/system-definition.md) の作成
 
 ## 進行中のタスク
 - [ ] 動作ログ記録（Logging Skill）の実装
