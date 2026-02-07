@@ -1,23 +1,56 @@
 ---
 name: skill-logging
-description: セッションごとの動作結果と期待値の乖離を記録し、改善の証跡を残すための手続き。
+description: 動作結果と期待値の乖離を JSON および Markdown 形式で記録する。
 ---
 
-# Skill: 動作ログ記録 (Logging)
+# Skill: Logging (JSON/Markdown)
 
-## 概要
-毎セッションの終了時、または重要なタスクの完了時に、その実行結果を客観的に記録する。
+## Definition
+- 本 Skill は、セッションやタスクの実行結果を標準化された形式で記録するための純粋な手続きである。
+- 記録される内容は、事後の監査および自動分析に利用される。
 
-## Instructions
-1. **ログファイルの特定**: `development_logs/session_logs.md` (または指定された場所) に追記する。
-2. **記録項目**: 以下のフォーマットで記述すること。
+## Input Contract
+- **Parameters**:
+    - `session_id`: セッションの一意識別子。
+    - `goal`: セッションまたはタスクの期待される成果。
+    - `result`: 実際の実行結果。
+    - `gap`: 期待値と結果の乖離（具体的記述）。
+    - `action`: 次回に向けた改善アクション。
+    - `format`: 出力形式 (`markdown` | `json` | `both`)。デフォルトは `both`。
+- **Constraint**: `goal`, `result`, `session_id` が不足している場合、Skill はエラーを返す。
 
----
-### Session Log: [YYYY-MM-DD] [Session ID/Topic]
-- **Goal (期待値)**: このセッションで何を達成しようとしたか。
-- **Result (実際の結果)**: 何が起こったか（成功/失敗/部分的成功）。
-- **Expectation Gap (乖離)**: 期待と何が違ったか。具体的（例：pmMode が Skill を無視した、Mode の切り替えが遅い等）に記述。
-- **Action for Improvement**: 次回どう修正するか。
----
+## Procedure (Stateless)
+1.  **保存先ディレクトリの確認**: `development_logs/` ディレクトリが存在することを確認する。存在しない場合は作成する。
+2.  **Markdown 出力の生成 (format が markdown または both の場合)**:
+    - ファイル名: `development_logs/session-[session_id].md`
+    - 内容:
+        ```markdown
+        # Session Audit Log: [session_id]
+        - **Date**: [Current Date]
+        - **Goal**: [goal]
+        - **Result**: [result]
+        - **Expectation Gap**: [gap]
+        - **Action for Improvement**: [action]
+        ```
+3.  **JSON 出力の生成 (format が json または both の場合)**:
+    - ファイル名: `development_logs/session-[session_id].json`
+    - 内容:
+        ```json
+        {
+          "session_id": "[session_id]",
+          "timestamp": "[Current ISO Timestamp]",
+          "audit": {
+            "goal": "[goal]",
+            "result": "[result]",
+            "expectation_gap": "[gap]",
+            "improvement_action": "[action]"
+          }
+        }
+        ```
+4.  **ファイル書き込み**: 生成されたコンテンツを指定されたパスに保存する。
 
-3. **project_state の更新**: 完了したタスクを `project_state.md` に反映し、次の課題を更新する。
+## Output Contract
+- **Result**: 指定された形式でのログファイル生成完了。
+- **Artifacts**:
+    - `development_logs/session-[session_id].md` (オプション)
+    - `development_logs/session-[session_id].json` (オプション)
