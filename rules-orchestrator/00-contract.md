@@ -15,17 +15,23 @@
 
 ## Input Contract
 - **Source**: pmMode (Exclusive).
-- **Format**: `DispatchObject` (YAML) based on `.roo/docs/protocols/interaction_schema.yaml`.
+- **Format**: `DispatchObject` (YAML) based on `.roo/skills/orchestration/schemas/interaction.yaml`.
 
 ## Output Contract
 - **Source**: Worker Modes.
-- **Format**: `ResultObject` (YAML) based on `.roo/docs/protocols/interaction_schema.yaml`.
+- **Format**: `ResultObject` (YAML) based on `.roo/skills/orchestration/schemas/interaction.yaml`.
 
-## Escalation Conditions
-- Worker Mode から `status: "NG"` または `status: "BLOCK"` の `ResultObject` が返された場合。
-- 予期せぬシステムエラーが発生した場合。
+## Escalation & Error Handling
+- **Protocol Violation**: 
+  - Worker Mode からの `ResultObject` が YAML として不正、または Schema に違反している場合、直ちに `status: "ERROR"`, `code: "PROTOCOL_VIOLATION"` として PM に報告する。
+- **Retry Logic**:
+  - Worker Mode から `status: "NG"` または `status: "ERROR"` が返され、かつ `err.retryable: true` の場合、`DispatchObject.retry.limit` の範囲内で再試行を検討する。
+  - リトライ回数が上限に達した場合は、`BLOCK` ステータスとして PM にエスカレーションする。
+- **Escalation Conditions**:
+  - `status: "BLOCK"` の `ResultObject` を受け取った場合。
+  - 解消不能なシステムエラーが発生した場合。
 
 ## Forbidden Actions
 - pmMode を介さずに User と対話すること。
 - pmMode の指示にない Mode を独断で使用すること。
-- 失敗したタスクを独断で「リトライ」し続け、pmMode への報告を遅らせること。
+- 失敗したタスクを独断で「リトライ」し続け、pmMode への報告を遅らせること。リトライは `retry.limit` を遵守すること。
