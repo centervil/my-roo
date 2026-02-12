@@ -1,8 +1,12 @@
+---
+name: skill-orchestration
+description: AIエージェント（Mode）間の通信プロトコル（Orchestration Protocol）を定義・検証・管理するためのスキル。
+---
+
 # Skill: Orchestration Protocol
 
-**Description**:
 AIエージェント（Mode）間の通信プロトコル（Orchestration Protocol）を定義・検証・管理するためのスキルです。
-Orchestrator が Worker Mode に指示を出す際（Dispatch）、および Worker Mode が結果を報告する際（Result）のインターフェースを規定します。
+Orchestrator が Worker Mode に指示を出す際（Dispatch） 、および Worker Mode が結果を報告する際（Result）のインターフェースを規定します。
 
 ## Components
 
@@ -12,18 +16,17 @@ Orchestrator が Worker Mode に指示を出す際（Dispatch）、および Wor
 - **ResultObject**: Worker -> Orchestrator
 
 ### 2. Validation Tool (`scripts/validate_interaction.py`)
-YAMLオブジェクトがスキーマに適合しているかを検証するスクリプトです。
+YAMLオブジェクトがスキーマに適合しているかを検証するス クリプトです。
 
 #### Usage
 ```bash
 # DispatchObject の検証
-python3 .roo/skills/orchestration/scripts/validate_interaction.py dispatch "path/to/dispatch.yaml"
+python3 .gemini/skills/skill-orchestration/scripts/validate_interaction.py dispatch "path/to/dispatch.yaml"
 
 # ResultObject の検証
-python3 .roo/skills/orchestration/scripts/validate_interaction.py result "path/to/result.yaml"
-# または文字列を直接渡す
-python3 .roo/skills/orchestration/scripts/validate_interaction.py result "status: OK..."
+python3 .gemini/skills/skill-orchestration/scripts/validate_interaction.py result "path/to/result.yaml"
 ```
+
 
 ## Role Responsibilities
 

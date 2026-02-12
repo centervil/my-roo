@@ -1,21 +1,29 @@
-# Skill Template: [Skill Name]
+---
+name: skill-name-id
+description: Brief description of the skill (one sentence).
+---
 
-## Definition
-- 本 Skill は「純粋な手続き」であり、推論や方針決定を行わない。
-- 実行時に必要となる「判断」は、常に呼び出し元の Mode の責任に属する。
+# Skill: [Display Name]
 
-## Input Contract
-- **Parameters**: (Skill 実行に必要な定量的・定性的データ)
-- **Constraint**: 入力が不足している場合、Skill は即座にエラーを返し、判断を Mode にエスカレーションする。
+## Definition / Overview
+Describe what this skill does and its purpose.
 
-## Procedure (Stateless)
-1. Step 1: ...
-2. Step 2: ...
-3. Step 3: ...
+## Capabilities
+List specific capabilities of this skill.
+- [Capability 1]
+- [Capability 2]
 
-## Output Contract
-- **Result**: (手続きの実行結果)
-- **Artifacts**: (生成されたファイル、データ等)
+## Usage Guidelines (Instructions)
+Procedural instructions for the AI to follow when using this skill.
+1. Step 1
+2. Step 2
 
-## Violation Conditions
-- 手続き内で「独自の解釈」や「仕様の変更」を行った場合、Skill 実行は無効とみなされる。
+## CLI Usage (Optional)
+If the skill has associated scripts, describe them here.
+```bash
+bash .gemini/skills/skill-id/scripts/command.sh [args]
+```
+
+## Resources
+- **Project State**: `.ops/project_state.md` (example)
+- **Other**: ...
