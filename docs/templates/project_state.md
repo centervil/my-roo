@@ -1,26 +1,20 @@
-# Project Status Report
+# Project Status
 
-## Period: [YYYY-MM-DD] to [YYYY-MM-DD]
+## Current Focus ([Phase Name/Status])
+- **Primary Goal**: [Primary objective of the current phase]
+- **Context**: [Current operational context or recent major achievements]
 
-## Executive Summary
-[Brief summary of the project's health, key achievements, and blockers.]
+## Roadmap / Milestones
+- [ ] **Phase 1: [Name]**
+    - [ ] [Task/Milestone 1]
+    - [ ] [Task/Milestone 2]
+- [ ] **Phase 2: [Name]**
+    - [ ] [Task/Milestone 1]
 
-## Milestones & Goals
-### Current Sprint / Month
-- [ ] Goal 1
-- [ ] Goal 2
+## Active Context & Directives
+- **Workflow**: [Specific rules or workflow paths currently active]
+- **Priority**: [Immediate priorities]
 
-### Upcoming
-- [ ] Future Goal 1
-
-## Key Metrics (Snapshot)
-- **Overall Progress**: [XX]%
-- **Open Issues**: [Number]
-- **Critical Bugs**: [Number]
-
-## Active Projects / Contexts
-- **Project A**: [Status Summary]
-- **Project B**: [Status Summary]
-
-## Risks & Blockers
-- [Describe any significant risks or impediments]
+## Backlog (High Level)
+- [ ] [Pending Task 1]
+- [ ] [Pending Task 2]
