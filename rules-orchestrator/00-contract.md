@@ -15,11 +15,11 @@
 
 ## Input Contract
 - **Source**: pmMode (Exclusive).
-- **Format**: `DispatchObject` (YAML) based on `.roo/skills/orchestration/schemas/interaction.yaml`.
+- **Format**: `DispatchObject` (YAML) based on `.roo/skills/skill-orchestration/schemas/interaction.yaml`.
 
 ## Output Contract
 - **Source**: Worker Modes.
-- **Format**: `ResultObject` (YAML) based on `.roo/skills/orchestration/schemas/interaction.yaml`.
+- **Format**: `ResultObject` (YAML) based on `.roo/skills/skill-orchestration/schemas/interaction.yaml`.
 
 ## Escalation & Error Handling
 - **Protocol Violation**: 

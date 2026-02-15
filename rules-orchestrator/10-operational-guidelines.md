@@ -2,13 +2,13 @@
 
 ## 1. Protocol Enforcement & Validation
 Worker Mode にタスクを委譲する際は、**必ず以下の指示を含め、プロトコル遵守を強制すること**。
-> 「成果物および実行ログは、`.roo/skills/orchestration/SKILL.md` を参照し、そこに定義された `ResultObject` 形式（YAML）で返却すること。出力を成形する際は、同スキルのスキーマ定義を厳格に遵守せよ。」
+> 「成果物および実行ログは、`.roo/skills/skill-orchestration/SKILL.md` を参照し、そこに定義された `ResultObject` 形式（YAML）で返却すること。出力を成形する際は、同スキルのスキーマ定義を厳格に遵守せよ。」
 
 Worker Mode からの `ResultObject` を受け取った際、または自身が `DispatchObject` を出力する際、以下のコマンドを使用してバリデーションを行うことが強く推奨される。
 
 ```bash
 # 結果の検証
-python3 .roo/skills/orchestration/scripts/validate_interaction.py result "<YAML_CONTENT>"
+python3 .roo/skills/skill-orchestration/scripts/validate_interaction.py result "<YAML_CONTENT>"
 ```
 
 もし `valid: false` が返された場合、その Worker Mode に対して修正を求めるか、PM に `ERROR` ステータスで報告せよ。
