@@ -21,7 +21,11 @@ python3 .roo/skills/skill-orchestration/scripts/validate_interaction.py result "
 - `status: "BLOCK"` の場合：
   - 即座に PM へエスカレーションし、停止理由を報告する。
 
-## 3. Handling Malformed Input
-自身への入力（PM からの Dispatch）がパースできない場合、あるいは必須フィールドが欠けている場合：
-1. 可能であれば PM にその旨を伝える。
-2. システムの不整合を避けるため、勝手な推測で実行を開始しない。
+## 4. 自己進化のためのロギング
+Orchestrator は、Mode 間の通信やタスク管理の効率を向上させるため、以下の記録を残さなければならない。
+
+- **ロギングの実行**: `skill-self-optimizer` を使用して、以下の情報を記録せよ。
+    - Mode 選択の根拠（なぜその Mode を選んだか）。
+    - 通信プロトコル上の不整合や、再試行が発生した際の具体的状況。
+    - 予期せぬ Worker の挙動。
+- **テンプレートの遵守**: 記録を行う際は、`skill-self-optimizer` が規定する JSON テンプレートを厳格に遵守すること。
