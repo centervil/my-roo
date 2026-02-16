@@ -21,6 +21,11 @@ python3 .roo/skills/skill-orchestration/scripts/validate_interaction.py result "
 - `status: "BLOCK"` の場合：
   - 即座に PM へエスカレーションし、停止理由を報告する。
 
+## 3. Handling Malformed Input
+自身への入力（PM からの Dispatch）がパースできない場合、あるいは必須フィールドが欠けている場合：
+1. 可能であれば PM にその旨を伝える。
+2. システムの不整合を避けるため、勝手な推測で実行を開始しない。
+
 ## 4. 自己進化のためのロギング
 Orchestrator は、Mode 間の通信やタスク管理の効率を向上させるため、以下の記録を残さなければならない。
 
