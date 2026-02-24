@@ -1,0 +1,42 @@
+# Interaction Schema for Agent-to-Agent Communication
+# (Orchestrator <-> Worker Mode)
+
+DispatchObject:
+  type: object
+  properties:
+    instruction:
+      type: string
+      description: "Specific task description from Orchestrator."
+    context:
+      type: array
+      items:
+        type: string
+        description: "Paths to relevant source files or references."
+    success_criteria:
+      type: array
+      items:
+        type: string
+        description: "Definition of 'Done' for this task."
+    output_format:
+      type: string
+      description: "Expected format of the result (e.g., Markdown, JSON)."
+
+ResultObject:
+  type: object
+  properties:
+    status:
+      type: string
+      enum: ["success", "failure", "escalation"]
+    artifacts:
+      type: array
+      items:
+        type: string
+        description: "Paths to created or modified files."
+    message:
+      type: string
+      description: "Summary of the work or reason for failure/escalation."
+    findings:
+      type: array
+      items:
+        type: string
+        description: "Observations or issues found during execution."
